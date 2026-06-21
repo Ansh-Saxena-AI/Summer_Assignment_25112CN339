@@ -1,0 +1,24 @@
+//Write a program to Find first repeating character.
+#include <stdio.h>
+
+int main() {
+    char str[200];
+    int freq[256] = {0};
+
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] != '\n') {
+            freq[(unsigned char)str[i]]++;
+            if (freq[(unsigned char)str[i]] == 2) {
+                printf("First repeating character: %c\n", str[i]);
+                return 0;
+            }
+        }
+    }
+
+    printf("No repeating character found.\n");
+
+    return 0;
+}
